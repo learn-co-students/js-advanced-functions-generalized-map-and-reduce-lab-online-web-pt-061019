@@ -9,8 +9,10 @@ function map(sourceArray, callFunction) {
 
 function reduce(sourceArray, cbFunction, startingValue){
         let start =  !!startingValue ? startingValue : sourceArray[0]
-        for (let i = 0; i < sourceArray.length; i++){
-           let result = cbFunction(sourceArray[i], start)
+        let i = !!startingValue ? 0 : 1
+        for ( ; i < sourceArray.length; i++){
+           start = cbFunction(sourceArray[i], start)
+           console.log(start)
         }
-       return result
+       return start
 }
